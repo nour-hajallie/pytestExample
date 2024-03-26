@@ -1,3 +1,10 @@
+name: Run Tests and Generate Reports
+
+on:
+  push:
+    branches:
+      - main  # Adjust the branch name as needed
+
 stages:
   - test
 
