@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.x'  # Specify the Python version you need
+          python-version: '3.11'  # Specify the Python version you need
 
       - name: Set PYTHONPATH
         run: |
@@ -31,13 +31,13 @@ jobs:
 
       - name: Run Tests with pytest
         run: |
-          pytest -v --junitxml=report.xml
-          pytest -v --html=report.html
+          pytest -v --junitxml=results/report.xml
+          pytest -v --html=results/report.html
 
       - name: Upload Test Reports
         uses: actions/upload-artifact@v2
         with:
           name: test-reports
           path: |
-            report.xml
-            report.html
+            results/report.xml
+            results/report.html
