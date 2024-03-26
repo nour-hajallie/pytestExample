@@ -20,7 +20,7 @@ jobs:
 
       - name: Set PYTHONPATH
         run: |
-          export PYTHONPATH=/Users/nour/Documents/GitHub/pytestExample:$PYTHONPATH
+          export PYTHONPATH=/Users/nour/Documents/GitHub/pytestExample/venv/bin/python:$PYTHONPATH
 
       - name: Install dependencies
         run: |
