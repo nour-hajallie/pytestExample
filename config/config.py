@@ -1,0 +1,6 @@
+BASE_URL="https://www.rijksmuseum.nl/api"
+GET_COLLECTION_END_POINT = "/nl/collection"
+VALID_API_KEY="SJueqKF4"
+INVALID_API_KEY="SJWeqKF4"
+VALID_COLLECTION_ID = "SK-C-5"
+INVALID_COLLECTION_ID = "SK-R-5"
