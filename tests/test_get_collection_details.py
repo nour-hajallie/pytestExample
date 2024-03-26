@@ -1,7 +1,7 @@
 import pytest
 
 from config import config
-from src.get_collection_details import GetCollectionDetails
+from src.getCollectionDetails import GetCollectionDetails
 from src.responseHandler import ResponseHandler
 
 

@@ -3,7 +3,7 @@ from unittest import TestCase
 import pytest
 
 from config import config
-from src.get_collection_image import GetCollectionImage
+from src.getCollectionImage import GetCollectionImage
 from src.responseHandler import ResponseHandler
 
 
