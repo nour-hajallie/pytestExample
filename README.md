@@ -4,7 +4,7 @@ The aim of this project is to implement automation testing for few API's collect
 
 # Technologies and Languages
 
-- Python: The project is written in Python, a versatile programming language known for its simplicity and readability.
+- Python: The project is written in Python, a programming language known for its simplicity and readability.
 
 - Pytest: Pytest is used as the testing framework, providing a robust set of features for writing and running tests with ease.
 
@@ -40,13 +40,15 @@ Then run the following command : pip install -r requirements.txt
 
 Tests are contained inside a folder 'Tests', then run the following command : pytest
 
-To generate xml results, run the following command : pytest --junitxml="../results/result.xml"
+To generate xml results, run the following command : pytest --junitxml="results/result.xml"
 
-To generate html  results, run the following command : pytest -v --html=../results/report.html
+To generate html  results, run the following command : pytest -v --html=results/report.html
 
 # Pipeline YAML Script
 
-This pipeline is created to automate the testing and deployment process for the project. The pipeline is triggered automatically on pushes to the main branch, ensuring that code changes are thoroughly tested before deployment.
+This pipeline is created to automate the testing and deployment process for the project. 
+
+The pipeline is triggered automatically on pushes to the main branch, ensuring that code changes are thoroughly tested before deployment.
 
 ## How it Works
 The pipeline consists of the following steps:
