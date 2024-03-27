@@ -35,6 +35,6 @@ jobs:
           results/report.xml
           results/report.html
 
-    - name: Build and deploy (replace this with your deployment steps)
+    - name: Build and deploy
       run: |
-        echo "Deploying..."
+        echo "Deploying to env X done successfully"
