@@ -13,8 +13,9 @@ def setup_fixture():
 
 def test_get_collection_with_valid_key(setup_fixture):
     """
-    This test case verifies the response of the get collection API when provided with a valid API key
-    and valid parameters. It aims to ensure that the API returns a status code of 200.
+    This test case verifies the response of the get collection API when provided with a valid API key and valid
+    parameters. It aims to ensure that the API returns a status code of 200. It then checks if the response contains
+    a list of art objects and verifies that each object has a valid ID.
 
     :return: None
     """
