@@ -12,12 +12,12 @@ def setup_fixture():
 
 
 def test_get_collection_with_valid_key(setup_fixture):
-    '''
+    """
     This test case verifies the response of the get collection API when provided with a valid API key
     and valid parameters. It aims to ensure that the API returns a status code of 200.
 
     :return: None
-    '''
+    """
     params = {"key": config.VALID_API_KEY,
               "involvedMaker": "Rembrandt van Rijn",
               "format": "json", "culture": "en",
@@ -47,16 +47,18 @@ def test_get_collection_with_valid_key(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 
+
 def test_get_collection_with_invalid_key(setup_fixture):
-    '''
+    """
     This test case verifies the response of the get collection API when provided with an invalid API key
     and valid parameters. It aims to ensure that the API returns a status code of 401.
 
     :return: None
-    '''
+    """
     params = {"key": config.INVALID_API_KEY, "involvedMaker": "Rembrandt van Rijn", "format": "json",
-        "culture": "en","p": "1", "ps": '4', "q": "a", "type": "a", "material": "a", "technique": "a", "f.dating.period": "0",
-        "f.normalized32Colors.hex": "Color HEX", "imgonly": "True", "toppieces": "True", "s": "relevance"
+              "culture": "en", "p": "1", "ps": '4', "q": "a", "type": "a", "material": "a", "technique": "a",
+              "f.dating.period": "0",
+              "f.normalized32Colors.hex": "Color HEX", "imgonly": "True", "toppieces": "True", "s": "relevance"
               }
 
     # Making a request to the get_collection to retrieve collection data with invalid api key.
@@ -70,22 +72,23 @@ def test_get_collection_with_invalid_key(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 
+
 # Unexpected behaviour test
 @pytest.mark.skip(reason="Test is skipped for unexpected behavior")
 def test_get_collection_with_invalid_request_parameter(setup_fixture):
-    '''
+    """
     The objective of this test is to check response of get collection API
     with a wrong parameter and valid key
     the wrong parameter passed is "cultureee" instead of "culture", "involvedMakers" instead of "involvedMaker"
     :return: None
     unexpected behaviour: the response is seen 200 even there is a typo with parameter names in the request
-    '''
+    """
     params = {"key": config.VALID_API_KEY,
               "involvedMakers": "Rembrandt van Rijn",
               "format": "json", "cultureee": "en",
               "p": "1", "ps": '100001', "q": "a",
               "type": "a", "material": "a", "technique": "a",
-              "f.dating.period": "0","f.normalized32Colors.hex": "Color HEX",
+              "f.dating.period": "0", "f.normalized32Colors.hex": "Color HEX",
               "imgonly": "True", "toppieces": "True",
               "s": "relevance"
               }

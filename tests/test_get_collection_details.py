@@ -13,14 +13,14 @@ def setup_fixture():
 
 
 def test_get_collection_details_with_valid_key(setup_fixture):
-    '''
+    """
     This test case verifies the response of the collection details API when provided with a valid API key.
     It ensures that the API returns a successful status code (200) and validates the structure of the JSON response.
     Additionally, it checks if the expected keys ('artObject' and 'artObjectPage') are present in the response.
     It also verifies if the object numbers in 'artObject' match the expected value from the configuration.
 
     :return: None
-    '''
+    """
     params = {"key": config.VALID_API_KEY,
               "format": "json", "culture": "en",
               "object-number": "1"
@@ -45,13 +45,13 @@ def test_get_collection_details_with_valid_key(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 def test_get_collection_details_with_invalid_collection_id(setup_fixture):
-    '''
+    """
     This test case verifies the response of the collection details API when provided with a valid API key
     and an invalid collection ID ("SK-R-216" instead of the valid one "SK-C-216").
     It ensures that the API returns an error status code (500) due to the invalid collection ID.
 
     :return: None
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "format": "json", "culture": "en",
               "object-number": "1"}
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)
@@ -70,14 +70,14 @@ def test_get_collection_details_with_invalid_collection_id(setup_fixture):
 # Unexpected behaviour test
 @pytest.mark.skip(reason="Test is skipped for unexpected behavior")
 def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
-    '''
+    """
     This test case verifies the response of the collection details API when provided with a valid API key
     and an incorrect parameter ('for' instead of 'format').
     It ensures that the API returns a status code of 400 due to the invalid request parameter.
     unexpected behaviour: the response is seen 200 even there is a typo with parameter names in the request
 
     :return:
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "for": "html", "culture": "en",
               "object-number": "1"}
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)
@@ -90,13 +90,13 @@ def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 def test_get_collection_details_with_invalid_parameter_value(setup_fixture):
-    '''
+    """
      This test case verifies the response of the collection details API when provided with a valid API key
     and an incorrect parameter value ('htmls' instead of 'html' for the format).
     It ensures that the API returns a status code of 404 due to the invalid parameter value.
 
     :return:
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "format": "htmls", "culture": "en",
               "object-number": "1"}
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)

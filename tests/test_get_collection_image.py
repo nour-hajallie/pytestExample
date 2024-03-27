@@ -14,6 +14,7 @@ def setup_fixture():
     yield
     print("Teardown actions if needed")
 
+
 def test_get_collection_image_with_valid_key(setup_fixture):
     '''
     This test case verifies the response of the image details API when provided with a valid API key.
@@ -54,12 +55,13 @@ def test_get_collection_image_with_valid_key(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 
+
 def test_get_collection_image_with_invalid_key(setup_fixture):
-    '''
+    """
      The objective of this test is to check the response of the image details API with an invalid API key.
      This test ensures that the API returns a status code of 401 (Unauthorized) when an invalid key is provided.
      :return: None
-     '''
+     """
     params = {"key": config.INVALID_API_KEY, "object-number": "1"}
     # Instantiate the API handler
     get_collection_image_handler = GetCollectionImage(config.RIJK_BASE_URL)
@@ -80,12 +82,12 @@ def test_get_collection_image_with_invalid_key(setup_fixture):
 # Unexpected behaviour test
 @pytest.mark.skip(reason="Test is skipped for a unexpected behavior")
 def test_get_collection_image_with_invalid_request_parameter(setup_fixture):
-    '''
+    """
     The objective of this test is to check response of image details API with a valid key
     and invalid parameter , "objectnum" instead of "object-number"
     This test should return a status code of 400 but code 200 is returned.
     :return:
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "objectnum": "1"}
     # Instantiate the API handler
     get_collection_image_handler = GetCollectionImage(config.RIJK_BASE_URL)
@@ -96,14 +98,15 @@ def test_get_collection_image_with_invalid_request_parameter(setup_fixture):
     # Verify response status code
     assert response.status_code == 400, f"Expected status code 400 (Bad Request), but got {response.status_code}"
 
+
 def test_get_collection_image_with_invalid_collection_id(setup_fixture):
-    '''
+    """
     The objective of this test is to check the response of the collection image API with a valid key
     and an invalid collection ID "SK-R-216" instead of the valid one "SK-C-216".
     This test ensures that the API returns a status code of 500 and contains an appropriate error message.
 
     :return: None
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "object-number": "1"}
 
     # Instantiate the API handler
@@ -117,6 +120,7 @@ def test_get_collection_image_with_invalid_collection_id(setup_fixture):
 
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
+
 
 # Define the is_valid_image function
 def is_valid_image(url):
