@@ -2,6 +2,8 @@
 
 The aim of this project is to implement automation testing for few API's collection related to Rijksmuseum.
 
+P.S: Few tests (MARKED AS SKIPPED) are failing because of an unexpected behaviour, the response is seen 200 even there is a typo with parameter names in the request.
+
 # Technologies and Languages
 
 - Python: The project is written in Python, a programming language known for its simplicity and readability.
