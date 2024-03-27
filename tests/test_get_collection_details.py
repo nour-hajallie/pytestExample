@@ -26,7 +26,7 @@ def test_get_collection_details_with_valid_key(setup_fixture):
               "object-number": "1"
               }
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)
-    response = get_collection_details_handler.get_collectionDetails(params)
+    response = get_collection_details_handler.get_collection_details(params)
     assert response.status_code == 200, f"Expected status code 200, but got {response.status_code}"
     json_content = response.json()
     print(json_content)
@@ -82,7 +82,7 @@ def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
               "object-number": "1"}
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)
     # Send request to the API
-    response = get_collection_details_handler.get_collectionDetails(params)
+    response = get_collection_details_handler.get_collection_details(params)
 
     # Verify response status code
     assert response.status_code == 400, f"Expected status code 400, but got {response.status_code}"
@@ -101,7 +101,7 @@ def test_get_collection_details_with_invalid_parameter_value(setup_fixture):
               "object-number": "1"}
     get_collection_details_handler = GetCollectionDetails(config.RIJK_BASE_URL)
     # Send request to the API
-    response = get_collection_details_handler.get_collectionDetails(params)
+    response = get_collection_details_handler.get_collection_details(params)
 
     # Verify response status code
     assert response.status_code == 404, f"Expected status code 404, but got {response.status_code}"
