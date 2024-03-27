@@ -37,13 +37,15 @@ def test_get_collection_details_with_valid_key(setup_fixture):
 
     # Verify if the object numbers in artObject match the expected value from the config
     expected_object_numbers = config.VALID_COLLECTION_ID
-    actual_object_numbers = json_content.get('artObject',{}).get('classification', {}).get('objectNumbers', [])
+    actual_object_numbers = json_content.get('artObject', {}).get('classification', {}).get('objectNumbers', [])
 
     # Convert the actual object numbers list to a string
     actual_object_numbers_str = ', '.join(actual_object_numbers)
     assert actual_object_numbers_str == expected_object_numbers, f"Expected object numbers {expected_object_numbers}, but got {actual_object_numbers_str}"
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
+
+
 def test_get_collection_details_with_invalid_collection_id(setup_fixture):
     """
     This test case verifies the response of the collection details API when provided with a valid API key
@@ -67,6 +69,7 @@ def test_get_collection_details_with_invalid_collection_id(setup_fixture):
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
 
+
 # Unexpected behaviour test
 @pytest.mark.skip(reason="Test is skipped for unexpected behavior")
 def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
@@ -74,7 +77,7 @@ def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
     This test case verifies the response of the collection details API when provided with a valid API key
     and an incorrect parameter ('for' instead of 'format').
     It ensures that the API returns a status code of 400 due to the invalid request parameter.
-    unexpected behaviour: the response is seen 200 even there is a typo with parameter names in the request
+    Unexpected behaviour: the response is seen 200 even there is a typo with parameter names in the request
 
     :return:
     """
@@ -89,6 +92,8 @@ def test_get_collection_details_with_invalid_request_parameter(setup_fixture):
 
     # Print success message if all assertions pass
     print("All assertions passed successfully.")
+
+
 def test_get_collection_details_with_invalid_parameter_value(setup_fixture):
     """
      This test case verifies the response of the collection details API when provided with a valid API key

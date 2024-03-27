@@ -77,11 +77,12 @@ def test_get_collection_with_invalid_key(setup_fixture):
 @pytest.mark.skip(reason="Test is skipped for unexpected behavior")
 def test_get_collection_with_invalid_request_parameter(setup_fixture):
     """
-    The objective of this test is to check response of get collection API
-    with a wrong parameter and valid key
-    the wrong parameter passed is "cultureee" instead of "culture", "involvedMakers" instead of "involvedMaker"
+    This test case verifies the response of the get collection API when provided with an invalid request parameter
+    and valid key. It aims to ensure that the API returns a status code of 400.
+    Unexpected behavior: The response status code is seen as 200 even when there is a typo in the
+    parameter names in the request.
+
     :return: None
-    unexpected behaviour: the response is seen 200 even there is a typo with parameter names in the request
     """
     params = {"key": config.VALID_API_KEY,
               "involvedMakers": "Rembrandt van Rijn",
@@ -99,5 +100,6 @@ def test_get_collection_with_invalid_request_parameter(setup_fixture):
 
     # Asserting that the response status code is 400, but we are facing here unexpected behavior
     assert response.status_code == 400, f"Expected status code 400, but got {response.status_code}"
+
     # Print success message if all assertions pass
     print("All assertions passed successfully.")

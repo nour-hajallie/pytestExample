@@ -1,5 +1,3 @@
-from unittest import TestCase
-
 import pytest
 import requests
 
@@ -16,14 +14,14 @@ def setup_fixture():
 
 
 def test_get_collection_image_with_valid_key(setup_fixture):
-    '''
+    """
     This test case verifies the response of the image details API when provided with a valid API key.
     It ensures that the API returns a successful status code (200) and validates the structure of the JSON response.
     Additionally, it extracts the URL from the JSON response and checks if it points to a valid image.
 
     :param setup_fixture: Fixture for test setup.
     :return: None
-    '''
+    """
     params = {"key": config.VALID_API_KEY, "object-number": "1"}
     get_collection_image_handler = GetCollectionImage(config.RIJK_BASE_URL)
     response = get_collection_image_handler.get_collection_image(params)
